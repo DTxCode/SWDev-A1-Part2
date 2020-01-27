@@ -26,10 +26,10 @@ void init_data() {
     s_vals[4] = new String("ryan!");
 
     o_vals[0] = new Object();
-    o_vals[0] = new Object();
-    o_vals[0] = new Object();
-    o_vals[0] = new Object();
-    o_vals[0] = new Object();
+    o_vals[1] = new Object();
+    o_vals[2] = new Object();
+    o_vals[3] = new Object();
+    o_vals[4] = new Object();
 
     keys[0] = new Object();
     keys[1] = new String("key2");
