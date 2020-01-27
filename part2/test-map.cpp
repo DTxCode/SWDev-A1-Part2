@@ -2,11 +2,11 @@
 * Authors: Ryan Heminway (heminway.r@husky.neu.edu), David Tandetnik
 * CS4500 A1 Part 2
 */
+#include "map.h"  // Note: make sure this import comes last
 #include "object.h"
 #include "string.h"
-#include "map.h"  // Note: make sure this import comes last
 
-String* keys[5];
+Object* keys[5];
 Object* o_vals[5];
 String* s_vals[5];
 Map* map;
@@ -31,7 +31,7 @@ void init_data() {
     o_vals[0] = new Object();
     o_vals[0] = new Object();
 
-    keys[0] = new String("key1");
+    keys[0] = new Object();
     keys[1] = new String("key2");
     keys[2] = new String("key3");
     keys[3] = new String("key4");

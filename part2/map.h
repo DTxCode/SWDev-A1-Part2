@@ -5,6 +5,8 @@
 */
 #pragma once
 
+#include "object.h"
+
 /*
 * Map represents a collection of (key, value) pairs. Each key is unique
 * and is associated with a single value.
@@ -16,19 +18,19 @@ class Map : public Object {
     ~Map() {}
 
     // Returns true if the given key is associated with a value, else false
-    bool has_key(String* key) {}
+    bool has_key(Object* key) {}
 
     // Returns the value associated with given key, or nullptr if no value
     // Expects user to cast response to get subtypes
-    Object* get(String* key) {}
+    Object* get(Object* key) {}
 
     // Associates the given key with the given value. Any existing value
     // associated with this key is overwritten
-    void put(String* key, Object* value) {}
+    void put(Object* key, Object* value) {}
 
     // Removes and returns the value associated with the given key.
     // Returns nullptr if no value exists for given key.
-    Object* remove(String* key) {}
+    Object* remove(Object* key) {}
 
     // Returns the number of (key,value) pairs in this map
     unsigned int size() {}

@@ -57,7 +57,7 @@ MAP (subclass of Object):
 
  'Map' structure represents a collection of key,value pairs. In other words, it maps a unique key to a value. Each
  key is unique meaning there are no duplicate keys, and each key maps to a single value. This does not mean that a value
- in the map is unique. All keys are Strings and all values are Objects. Since Strings are a subclass of objects, it may
+ in the map is unique. All keys are Objects and all values are Objects. Since Strings are a subclass of objects, it may
  be possible to cast the values returned by this map to Strings. The following methods are supported by the Map class:
 
 Map()
@@ -66,16 +66,16 @@ Map()
 ~Map() 
     - Default destructor
 
-bool has_key(String* key)
+bool has_key(Object* key)
     - Returns true if the key is associated with a value in this ap, else returns false. 
 
-Object* get(String* key)
+Object* get(Object* key)
     - Returns the value associated with that key, or nullptr if there is no value associated
 
-void put(String* key, Object* value)
+void put(Object* key, Object* value)
     - Associates the given value with the given key. If the given key exists, its value is overwritten
 
-Object* remove(String* key)
+Object* remove(Object* key)
     - Removes and returns the value associated with the given key. Returns nullptr if there is no value associated.
 
 unsigned int size()
