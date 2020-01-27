@@ -78,5 +78,5 @@ void put(Object* key, Object* value)
 Object* remove(Object* key)
     - Removes and returns the value associated with the given key. Returns nullptr if there is no value associated.
 
-unsigned int size()
+size_t size()
     - Returns the number of keys associated in this mapping

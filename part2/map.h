@@ -5,6 +5,7 @@
 */
 #pragma once
 
+#include <stdlib.h>
 #include "object.h"
 
 /*
@@ -33,5 +34,5 @@ class Map : public Object {
     Object* remove(Object* key) {}
 
     // Returns the number of (key,value) pairs in this map
-    unsigned int size() {}
+    size_t size() {}
 };
