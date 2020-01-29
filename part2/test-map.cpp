@@ -3,9 +3,9 @@
 * CS4500 A1 Part 2
 */
 #include <assert.h>
-#include "map.h"  // Note: make sure this import comes last
 #include "object.h"
 #include "string.h"
+#include "map.h"  // Note: make sure this import comes last
 
 Object* keys[5];
 Object* o_vals[5];
@@ -92,6 +92,7 @@ bool test_get() {
     passed = passed && !(s_vals[1]->equals(map->get(keys[3])));
     passed = passed && (nullptr == map->get(keys[4]));
     passed = passed && (nullptr == map->get(keys[3]));
+    passed = passed && (nullptr == map->get(nullptr));
 
     cleanup();
     return passed;
@@ -104,6 +105,7 @@ bool test_put() {
     map->put(keys[0], o_vals[0]);
     map->put(keys[3], s_vals[2]);
     map->put(keys[4], s_vals[3]);
+    map->put(keys[4], nullptr);
     bool passed = true;
     passed = passed && (map->size() == 3);
     passed = passed && map->has_key(keys[0]);
@@ -138,6 +140,7 @@ bool test_remove() {
     passed = passed && (map->size() == 1);
     passed = passed && !o_vals[0]->equals(map->remove(keys[4]));
     passed = passed && (map->size() == 0);
+    passed = passed && (nullptr == map->remove(nullptr));
 
     cleanup();
     return passed;
