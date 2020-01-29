@@ -19,6 +19,7 @@ class Map : public Object {
     ~Map() {}
 
     // Returns true if the given key is associated with a value, else false
+    // Always false if key == nullptr
     bool has_key(Object* key) {}
 
     // Returns the value associated with given key, or nullptr if no value
@@ -27,6 +28,7 @@ class Map : public Object {
 
     // Associates the given key with the given value. Any existing value
     // associated with this key is overwritten
+    // Does nothing if key or value == nullptr
     void put(Object* key, Object* value) {}
 
     // Removes and returns the value associated with the given key.

@@ -58,7 +58,9 @@ MAP (subclass of Object):
  'Map' structure represents a collection of key,value pairs. In other words, it maps a unique key to a value. Each
  key is unique meaning there are no duplicate keys, and each key maps to a single value. This does not mean that a value
  in the map is unique. All keys are Objects and all values are Objects. Since Strings are a subclass of objects, it may
- be possible to cast the values returned by this map to Strings. The following methods are supported by the Map class:
+ be possible to cast the values returned by this map to Strings. That being said, our Map does not support nullptr as a
+ valid key or value. In turn, this means that any method that returns nullptr indicates a 'failure'. Failure does not
+ necessarily mean an error, it can mean nothing was done. The following methods are supported by the Map class:
 
 Map()
     - Default constructor
@@ -67,13 +69,14 @@ Map()
     - Default destructor
 
 bool has_key(Object* key)
-    - Returns true if the key is associated with a value in this ap, else returns false. 
+    - Returns true if the key is associated with a value in this ap, else returns false. Always false if key == nullptr.
 
 Object* get(Object* key)
     - Returns the value associated with that key, or nullptr if there is no value associated
 
 void put(Object* key, Object* value)
-    - Associates the given value with the given key. If the given key exists, its value is overwritten
+    - Associates the given value with the given key. If the given key exists, its value is overwritten. If the key or
+    value is == nullptr, this method does nothing. 
 
 Object* remove(Object* key)
     - Removes and returns the value associated with the given key. Returns nullptr if there is no value associated.
