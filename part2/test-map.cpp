@@ -2,6 +2,7 @@
 * Authors: Ryan Heminway (heminway.r@husky.neu.edu), David Tandetnik
 * CS4500 A1 Part 2
 */
+#include <assert.h>
 #include "map.h"  // Note: make sure this import comes last
 #include "object.h"
 #include "string.h"
@@ -167,9 +168,9 @@ bool test_size() {
 
 // Main to run all tests
 int main(int argc, char** argv) {
-    test_get();
-    test_has_key();
-    test_put();
-    test_remove();
-    test_size();
+    assert(test_get());
+    assert(test_has_key());
+    assert(test_put());
+    assert(test_remove());
+    assert(test_size());
 }
