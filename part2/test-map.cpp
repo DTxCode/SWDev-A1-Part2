@@ -2,9 +2,10 @@
 * Authors: Ryan Heminway (heminway.r@husky.neu.edu), David Tandetnik
 * CS4500 A1 Part 2
 */
-#include "map.h"  // Note: make sure this import comes last
+#include <assert.h>
 #include "object.h"
 #include "string.h"
+#include "map.h"  // Note: make sure this import comes last
 
 Object* keys[5];
 Object* o_vals[5];
@@ -91,6 +92,7 @@ bool test_get() {
     passed = passed && !(s_vals[1]->equals(map->get(keys[3])));
     passed = passed && (nullptr == map->get(keys[4]));
     passed = passed && (nullptr == map->get(keys[3]));
+    passed = passed && (nullptr == map->get(nullptr));
 
     cleanup();
     return passed;
@@ -103,6 +105,7 @@ bool test_put() {
     map->put(keys[0], o_vals[0]);
     map->put(keys[3], s_vals[2]);
     map->put(keys[4], s_vals[3]);
+    map->put(keys[4], nullptr);
     bool passed = true;
     passed = passed && (map->size() == 3);
     passed = passed && map->has_key(keys[0]);
@@ -112,7 +115,7 @@ bool test_put() {
     passed = passed && !map->has_key(keys[2]);
     passed = passed && (o_vals[0]->equals(map->get(keys[0])));
     passed = passed && (s_vals[2]->equals(map->get(keys[3])));
-    passed = passed && (s_vals[3]->equals(map->get(keys[4])));
+    passed = passed && (nullptr == map->get(keys[4]));
     passed = passed && !(o_vals[0]->equals(map->get(keys[2])));
     passed = passed && !(s_vals[1]->equals(map->get(keys[3])));
     passed = passed && (nullptr == map->get(keys[1]));
@@ -137,6 +140,7 @@ bool test_remove() {
     passed = passed && (map->size() == 1);
     passed = passed && !o_vals[0]->equals(map->remove(keys[4]));
     passed = passed && (map->size() == 0);
+    passed = passed && (nullptr == map->remove(nullptr));
 
     cleanup();
     return passed;
@@ -167,9 +171,9 @@ bool test_size() {
 
 // Main to run all tests
 int main(int argc, char** argv) {
-    test_get();
-    test_has_key();
-    test_put();
-    test_remove();
-    test_size();
+    assert(test_get());
+    assert(test_has_key());
+    assert(test_put());
+    assert(test_remove());
+    assert(test_size());
 }
